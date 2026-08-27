@@ -1,0 +1,7 @@
+# Mitre BOSS — Netlify configuration
+# Tells Netlify where the serverless function lives. No build step is required
+# because the function has zero dependencies (it calls the Stripe API directly).
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
