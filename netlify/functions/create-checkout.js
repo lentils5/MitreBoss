@@ -20,7 +20,7 @@ function postageFor(cart) {
   if (!cart.length) return 0;
   const hasBoxOrBundle = cart.some(c => c.id === 'mitre-boss' || c.id === 'boss-bundle');
   if (hasBoxOrBundle) return 30;
-  return cart.reduce((s, c) => s + 4 * c.qty, 0);
+  return cart.reduce((s, c) => s + 10 * c.qty, 0);
 }
 
 exports.handler = async (event) => {
