@@ -109,7 +109,7 @@
         <div class="rounded-lg overflow-hidden aspect-square w-full border border-white/10">
           <img src="assets/box-range-colours.jpg" alt="Mitre BOSS range — orange, grey and two-tone mitre boxes" class="w-full h-full object-cover" loading="eager" />
         </div>
-        <div class="absolute -bottom-4 -left-4 bg-hiviz text-ink font-display text-lg px-4 py-2 rounded-sm shadow-lg">BOX $129 · BUNDLE $169</div>
+        <div class="absolute -bottom-4 -left-4 bg-hiviz text-ink font-display text-lg px-4 py-2 rounded-sm shadow-lg">BOX $129 · BUNDLE $159</div>
       </div>
     </div>
   </section>
@@ -167,7 +167,7 @@
         <div class="text-center sm:text-left">
           <span class="inline-block bg-ink text-hiviz text-[11px] font-extrabold uppercase tracking-wide px-3 py-1 rounded-full">Coming soon</span>
           <h3 class="font-display text-2xl uppercase mt-2 text-white">Mitre BOSS Saw</h3>
-          <p class="text-gray-300 text-sm mt-1 max-w-xl">The Mitre BOSS branded handsaw is on its way. When it lands, it joins the Boss Bundle — which steps up to <strong>$220 including postage</strong> with the saw included. Grab the bundle now at $169 and you're in before the price moves.</p>
+          <p class="text-gray-300 text-sm mt-1 max-w-xl">The Mitre BOSS branded handsaw is on its way. When it lands, it joins the Boss Bundle — which steps up to <strong>$220 including postage</strong> with the saw included. Grab the bundle now at $159 and you're in before the price moves.</p>
         </div>
       </div>
     </div>
@@ -203,7 +203,7 @@
           <div class="flex justify-between py-3"><dt class="text-white/50">Magnets</dt><dd class="font-semibold text-right">Built-in for tape measure</dd></div>
           <div class="flex justify-between py-3"><dt class="text-white/50">Cut angles</dt><dd class="font-semibold text-right">45° + obtuse · internal &amp; external</dd></div>
           <div class="flex justify-between py-3"><dt class="text-white/50">In the box</dt><dd class="font-semibold text-right">Free pencil + sticker</dd></div>
-          <div class="flex justify-between py-3"><dt class="text-white/50">Warranty</dt><dd class="font-semibold text-right">TBC</dd></div>
+          <div class="flex justify-between py-3"><dt class="text-white/50">Warranty</dt><dd class="font-semibold text-right">30-day money-back</dd></div>
           <div class="flex justify-between py-3"><dt class="text-white/50">Origin</dt><dd class="font-semibold text-right text-hiviz">Australian Made</dd></div>
         </dl>
       </div>
@@ -329,7 +329,7 @@
   <div class="md:hidden fixed bottom-0 inset-x-0 z-40 bg-ink/95 backdrop-blur border-t border-white/15 px-4 py-2.5 flex items-center justify-between gap-3">
     <a href="#buy" class="leading-none shrink-0">
       <span class="block text-white/60 text-[11px] font-semibold uppercase tracking-wide">Best value</span>
-      <span class="block text-white font-bold text-sm">Boss Bundle · <span class="text-hiviz">$169</span></span>
+      <span class="block text-white font-bold text-sm">Boss Bundle · <span class="text-hiviz">$159</span></span>
     </a>
     <button id="stickyAdd" class="flex-1 max-w-[52%] py-3 bg-hiviz hover:bg-hiviz-dark text-ink font-extrabold uppercase tracking-wide rounded-sm text-sm transition">Add to Cart</button>
   </div>
@@ -339,7 +339,7 @@
     // accessories = flat $10 per 4 items (combined), but RIDE ALONG FREE when the order
     // includes a box or bundle (same parcel — Lenny confirmed 2026-08-24).
     const PRODUCTS = [
-      { id: 'boss-bundle', name: 'Boss Bundle', sub: 'Box + 2-Inch + 2 Small Tools + 2 Pencils + Stickers', price: 169.00, tag: 'BEST VALUE', img: 'assets/box-range-colours.jpg', postNote: '+ $30 postage · Australia-wide', featured: true },
+      { id: 'boss-bundle', name: 'Boss Bundle', sub: 'Box + 2-Inch + 2 Small Tools + 2 Pencils + Stickers', price: 159.00, save: 11.95, tag: 'BEST VALUE', img: 'assets/box-range-colours.jpg', postNote: '+ $30 postage · Australia-wide', featured: true },
       { id: 'mitre-boss', name: 'Mitre BOSS', sub: 'The Box', price: 129.00, tag: '', img: 'assets/mitreboss.jpg', postNote: '+ $30 postage · free pencil + sticker in every box' },
       { id: 'two-inch', name: '2-Inch', sub: 'Mitre BOSS scraper', price: 21.95, tag: '', img: 'assets/two-inch-colours.jpg', postNote: '+ $10 post for up to 4 · free with a box' },
       { id: 'small-tool', name: 'Small Tool', sub: 'Plasterer\u2019s small tool', price: 10.00, tag: '', img: 'assets/small-tool.jpg', postNote: '+ $10 post for up to 4 · free with a box' }
@@ -365,6 +365,7 @@
               <img src="${t.img}" alt="${t.name}" class="w-full h-full object-cover" loading="lazy" />
             </div>
             <p class="font-display text-4xl text-white">${fmt(t.price)}</p>
+            ${t.save ? `<p class="text-hiviz text-xs font-extrabold uppercase tracking-wide mt-1">Save ${fmt(t.save)} vs buying separately</p>` : ''}
             <p class="text-xs text-gray-400 mt-1">AUD · ${t.postNote}</p>
           </div>
           <button data-id="${t.id}" class="add-btn mt-5 w-full py-3 ${t.featured ? 'bg-hiviz hover:bg-hiviz-dark text-ink' : 'bg-white/10 hover:bg-white/20 text-white border border-white/15'} font-extrabold uppercase tracking-wide rounded-sm transition">
@@ -574,9 +575,9 @@
       { q: 'What cornice sizes does it work with?', a: 'The Mitre BOSS accurately cuts 55mm, 75mm, and 90mm cornice — covering the most common profiles used across residential and commercial plastering work.' },
       { q: 'What\'s special about the magnets?', a: 'Built-in magnets hold your tape measure securely in place when cutting external mitres. This keeps both hands free and improves accuracy and consistency on every cut.' },
       { q: 'How do I order?', a: 'Add what you need to the cart and hit "Pay Securely with Card" — you\'ll be taken to our secure Stripe checkout to pay by card, Apple Pay or Google Pay, and your order is confirmed on the spot. Prefer bank transfer? Just email us and we\'ll send an invoice instead.' },
-      { q: 'How much is shipping?', a: 'Shipping is a flat $30 per order Australia-wide on any box or Boss Bundle. Hand tools (2-Inch and Small Tool) are a flat $10 postage for up to 4 (combined into one parcel) — and they ship FREE when ordered with a box or bundle. The Boss Bundle is $169 plus $30 postage.' },
+      { q: 'How much is shipping?', a: 'Shipping is a flat $30 per order Australia-wide on any box or Boss Bundle. Hand tools (2-Inch and Small Tool) are a flat $10 postage for up to 4 (combined into one parcel) — and they ship FREE when ordered with a box or bundle. The Boss Bundle is $159 plus $30 postage.' },
       { q: 'What comes with the box?', a: 'Every Mitre BOSS ships with a free Mitre BOSS pencil and sticker in the box.' },
-      { q: 'What\'s in the Boss Bundle?', a: 'The Mitre BOSS box, a 2-Inch scraper, two Small Tools, 2 pencils and stickers — $169 plus $30 postage Australia-wide. When the Mitre BOSS saw lands it joins the bundle, which steps up to $220 including postage.' },
+      { q: 'What\'s in the Boss Bundle?', a: 'The Mitre BOSS box, a 2-Inch scraper, two Small Tools, 2 pencils and stickers — $159 plus $30 postage Australia-wide. When the Mitre BOSS saw lands it joins the bundle, which steps up to $220 including postage.' },
       { q: 'What\'s the return policy?', a: 'Not happy with it? Send it back within 30 days for a full refund — no fuss. Just email us and we\'ll sort it out.' },
     ];
 
