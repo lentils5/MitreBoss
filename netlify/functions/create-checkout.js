@@ -8,7 +8,7 @@
 // (Never put the secret key in the website code — only in Netlify's settings.)
 
 const CATALOG = {
-  'boss-bundle': { name: 'Boss Bundle — Box + 2-Inch + Small Tool + 2 Pencils + Stickers', price: 169.00 },
+  'boss-bundle': { name: 'Boss Bundle — Box + 2-Inch + Small Tool + 2 Pencils + Stickers', price: 159.00 },
   'mitre-boss':  { name: 'Mitre BOSS — The Box',      price: 129.00 },
   'two-inch':    { name: 'Mitre BOSS 2-Inch Scraper', price: 21.95 },
   'small-tool':  { name: 'Mitre BOSS Small Tool',     price: 10.00 },
