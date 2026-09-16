@@ -8,7 +8,7 @@
 // (Never put the secret key in the website code — only in Netlify's settings.)
 
 const CATALOG = {
-  'boss-bundle': { name: 'Boss Bundle — Box + 2-Inch + Small Tool + 2 Pencils + Stickers', price: 169.00 },
+  'boss-bundle': { name: 'Boss Bundle — Box + 2-Inch + 2 Small Tools + 2 Pencils + Stickers', price: 159.00 },
   'mitre-boss':  { name: 'Mitre BOSS — The Box',      price: 129.00 },
   'two-inch':    { name: 'Mitre BOSS 2-Inch Scraper', price: 21.95 },
   'small-tool':  { name: 'Mitre BOSS Small Tool',     price: 10.00 },
@@ -54,6 +54,7 @@ exports.handler = async (event) => {
   p.append('cancel_url', base + '/#buy');
   p.append('billing_address_collection', 'auto');
   p.append('shipping_address_collection[allowed_countries][0]', 'AU');
+  p.append('shipping_address_collection[allowed_countries][1]', 'NZ');
   p.append('phone_number_collection[enabled]', 'true');
 
   let i = 0;
@@ -66,13 +67,17 @@ exports.handler = async (event) => {
     i++;
   }
 
-  const postage = postageFor(cart);
-  if (postage > 0) {
-    p.append(`line_items[${i}][price_data][currency]`, 'aud');
-    p.append(`line_items[${i}][price_data][product_data][name]`, 'Postage — Australia-wide');
-    p.append(`line_items[${i}][price_data][unit_amount]`, String(Math.round(postage * 100)));
-    p.append(`line_items[${i}][quantity]`, '1');
-  }
+  // Shipping as selectable options: Australia uses the dynamic domestic rule;
+  // New Zealand is a flat $41. Customer picks their destination at checkout.
+  const auPostage = postageFor(cart);
+  p.append('shipping_options[0][shipping_rate_data][type]', 'fixed_amount');
+  p.append('shipping_options[0][shipping_rate_data][display_name]', 'Australia');
+  p.append('shipping_options[0][shipping_rate_data][fixed_amount][amount]', String(Math.round(auPostage * 100)));
+  p.append('shipping_options[0][shipping_rate_data][fixed_amount][currency]', 'aud');
+  p.append('shipping_options[1][shipping_rate_data][type]', 'fixed_amount');
+  p.append('shipping_options[1][shipping_rate_data][display_name]', 'New Zealand');
+  p.append('shipping_options[1][shipping_rate_data][fixed_amount][amount]', '4100');
+  p.append('shipping_options[1][shipping_rate_data][fixed_amount][currency]', 'aud');
 
   try {
     const resp = await fetch('https://api.stripe.com/v1/checkout/sessions', {
