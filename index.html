@@ -222,7 +222,7 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="text-white pt-16 pb-28 md:pb-10">
+  <footer class="text-white pt-16 pb-28 md:pb-24">
     <div class="max-w-7xl mx-auto px-4 sm:px-6">
       <div class="grid sm:grid-cols-3 gap-8 text-center sm:text-left">
         <div class="flex flex-col items-center sm:items-start gap-2">
@@ -326,13 +326,15 @@
     </div>
   </aside>
 
-  <!-- Sticky mobile buy bar -->
-  <div class="md:hidden fixed bottom-0 inset-x-0 z-40 bg-ink/95 backdrop-blur border-t border-white/15 px-4 py-2.5 flex items-center justify-between gap-3">
+  <!-- Sticky bundle buy bar — follows the page on all devices (full-width bar on mobile, floating pill on desktop) -->
+  <div class="fixed z-40 bg-ink/95 backdrop-blur flex items-center justify-between gap-3
+              bottom-0 inset-x-0 border-t border-white/15 px-4 py-2.5
+              md:bottom-6 md:inset-x-auto md:left-1/2 md:-translate-x-1/2 md:w-auto md:rounded-full md:border md:border-hiviz/60 md:px-5 md:py-3 md:gap-5 md:shadow-2xl">
     <a href="#buy" class="leading-none shrink-0">
-      <span class="block text-white/60 text-[11px] font-semibold uppercase tracking-wide">Best value</span>
+      <span class="block text-white/60 text-[11px] font-semibold uppercase tracking-wide">Best value · save $25.94</span>
       <span class="block text-white font-bold text-sm">Boss Bundle · <span class="text-hiviz">$159</span></span>
     </a>
-    <button id="stickyAdd" class="flex-1 max-w-[52%] py-3 bg-hiviz hover:bg-hiviz-dark text-ink font-extrabold uppercase tracking-wide rounded-sm text-sm transition">Add to Cart</button>
+    <button id="stickyAdd" class="flex-1 max-w-[52%] py-3 md:flex-none md:max-w-none md:py-2.5 md:px-6 bg-hiviz hover:bg-hiviz-dark text-ink font-extrabold uppercase tracking-wide rounded-sm md:rounded-full text-sm transition">Add to Cart</button>
   </div>
 
   <script>
