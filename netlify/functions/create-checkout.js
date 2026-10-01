@@ -10,7 +10,7 @@
 const CATALOG = {
   'boss-bundle': { name: 'Boss Bundle — Box + Saw + 2-Inch + 2 Small Tools + 2 Pencils + Stickers', price: 159.00 },
   'mitre-boss':  { name: 'Mitre BOSS — The Box',      price: 129.00 },
-  'saw':         { name: 'Mitre BOSS Saw (9 TPI)',    price: 16.99 },
+  'saw':         { name: 'Mitre BOSS Saw (9 TPI)',    price: 13.99 },
   'two-inch':    { name: 'Mitre BOSS 2-Inch Scraper', price: 21.95 },
   'small-tool':  { name: 'Mitre BOSS Small Tool',     price: 10.00 },
 };
