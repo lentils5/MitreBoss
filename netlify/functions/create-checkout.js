@@ -8,18 +8,23 @@
 // (Never put the secret key in the website code — only in Netlify's settings.)
 
 const CATALOG = {
-  'boss-bundle': { name: 'Boss Bundle — Box + 2-Inch + 2 Small Tools + 2 Pencils + Stickers', price: 159.00 },
+  'boss-bundle': { name: 'Boss Bundle — Box + Saw + 2-Inch + 2 Small Tools + 2 Pencils + Stickers', price: 159.00 },
   'mitre-boss':  { name: 'Mitre BOSS — The Box',      price: 129.00 },
+  'saw':         { name: 'Mitre BOSS Saw (9 TPI)',    price: 16.99 },
   'two-inch':    { name: 'Mitre BOSS 2-Inch Scraper', price: 21.95 },
   'small-tool':  { name: 'Mitre BOSS Small Tool',     price: 10.00 },
 };
 
-// Mirrors the site's postage rules: box or bundle = flat $30/order Australia-wide;
-// accessories are $4 each, but ride along free when a box or bundle is present.
+// Mirrors the site's postage rules (one parcel, one rate — everything fits together):
+//  - box or bundle present  -> $30 flat (saw + hand tools ride along free)
+//  - else saw present       -> $15 flat (hand tools ride along free)
+//  - else hand tools only   -> $10 per 4 items (combined)
 function postageFor(cart) {
   if (!cart.length) return 0;
   const hasBoxOrBundle = cart.some(c => c.id === 'mitre-boss' || c.id === 'boss-bundle');
   if (hasBoxOrBundle) return 30;
+  const hasSaw = cart.some(c => c.id === 'saw');
+  if (hasSaw) return 15;
   return Math.ceil(cart.reduce((s, c) => s + c.qty, 0) / 4) * 10;
 }
 
