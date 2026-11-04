@@ -8,10 +8,13 @@
 // (Never put the secret key in the website code — only in Netlify's settings.)
 
 const CATALOG = {
+  'ultimate-bundle': { name: 'Ultimate Bundle — Box + Saw + 2-Inch + 4-Inch + 6-Inch + 2 Small Tools + 2 Pencils + Stickers', price: 199.00 },
   'boss-bundle': { name: 'Boss Bundle — Box + Saw + 2-Inch + 2 Small Tools + 2 Pencils + Stickers', price: 159.00 },
   'mitre-boss':  { name: 'Mitre BOSS — The Box',      price: 129.00 },
   'saw':         { name: 'Mitre BOSS Saw (9 TPI)',    price: 13.99 },
   'two-inch':    { name: 'Mitre BOSS 2-Inch Scraper', price: 21.99 },
+  'four-inch':   { name: 'Mitre BOSS 4-Inch Stripper', price: 24.99 },
+  'six-inch':    { name: 'Mitre BOSS 6-Inch Stripper', price: 26.99 },
   'small-tool':  { name: 'Mitre BOSS Small Tool',     price: 10.00 },
 };
 
@@ -21,7 +24,7 @@ const CATALOG = {
 //  - else hand tools only   -> $10 per 4 items (combined)
 function postageFor(cart) {
   if (!cart.length) return 0;
-  const hasBoxOrBundle = cart.some(c => c.id === 'mitre-boss' || c.id === 'boss-bundle');
+  const hasBoxOrBundle = cart.some(c => c.id === 'mitre-boss' || c.id === 'boss-bundle' || c.id === 'ultimate-bundle');
   if (hasBoxOrBundle) return 30;
   const hasSaw = cart.some(c => c.id === 'saw');
   if (hasSaw) return 15;
