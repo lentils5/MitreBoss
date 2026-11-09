@@ -335,8 +335,8 @@
               bottom-0 inset-x-0 border-t border-white/15 px-4 py-2.5
               md:bottom-6 md:inset-x-auto md:left-1/2 md:-translate-x-1/2 md:w-auto md:rounded-full md:border md:border-hiviz/60 md:px-5 md:py-3 md:gap-5 md:shadow-2xl">
     <a href="#buy" class="leading-none shrink-0">
-      <span class="block text-white/60 text-[11px] font-semibold uppercase tracking-wide">Best value · save $25.98</span>
-      <span class="block text-white font-bold text-sm">Boss Bundle · <span class="text-hiviz">$159</span></span>
+      <span class="block text-white/60 text-[11px] font-semibold uppercase tracking-wide">The lot · save $37.96</span>
+      <span class="block text-white font-bold text-sm">Ultimate Bundle · <span class="text-hiviz">$199</span></span>
     </a>
     <button id="stickyAdd" class="flex-1 max-w-[52%] py-3 md:flex-none md:max-w-none md:py-2.5 md:px-6 bg-hiviz hover:bg-hiviz-dark text-ink font-extrabold uppercase tracking-wide rounded-sm md:rounded-full text-sm transition">Add to Cart</button>
   </div>
@@ -502,7 +502,7 @@
     el('cartBtn').onclick = openCart;
     el('closeCart').onclick = closeCart;
     overlay.onclick = closeCart;
-    el('stickyAdd').onclick = () => addToCart('boss-bundle');
+    el('stickyAdd').onclick = () => addToCart('ultimate-bundle');
     el('checkoutBtn').onclick = async () => {
       if (!cart.length) return;
       const btn = el('checkoutBtn');
