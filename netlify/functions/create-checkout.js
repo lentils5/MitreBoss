@@ -58,6 +58,10 @@ exports.handler = async (event) => {
 
   const p = new URLSearchParams();
   p.append('mode', 'payment');
+  // Offer card (incl. Apple Pay / Google Pay) and Afterpay. Afterpay is enabled on the
+  // account and supports AUD $1–$20,000, so it covers every product and bundle.
+  p.append('payment_method_types[0]', 'card');
+  p.append('payment_method_types[1]', 'afterpay_clearpay');
   p.append('success_url', base + '/?paid=1');
   p.append('cancel_url', base + '/#buy');
   p.append('billing_address_collection', 'auto');
