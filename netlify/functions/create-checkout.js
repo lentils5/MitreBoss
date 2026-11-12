@@ -69,6 +69,12 @@ exports.handler = async (event) => {
   p.append('shipping_address_collection[allowed_countries][1]', 'NZ');
   p.append('phone_number_collection[enabled]', 'true');
 
+  // Automatically create a tax invoice for every order and email the PDF to the
+  // customer. Your ABN + business name/address come from Stripe business details,
+  // so each invoice is a valid Australian tax invoice. (~0.4% per invoice, capped.)
+  p.append('invoice_creation[enabled]', 'true');
+  p.append('invoice_creation[invoice_data][footer]', 'Total price includes GST (10%). Thank you for supporting an Australian-made business.');
+
   let i = 0;
   for (const item of cart) {
     const prod = CATALOG[item.id];
